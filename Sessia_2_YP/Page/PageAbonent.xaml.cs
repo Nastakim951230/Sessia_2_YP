@@ -20,24 +20,24 @@ namespace Sessia_2_YP.Page
     /// </summary>
     public partial class PageAbonent 
     {
-        public static int id=0;
+
+        Sotrudnik img;
         public PageAbonent()
         {
             InitializeComponent();
-            Class.ClassBase.Bd = new Base();
+            buttons.Navigate(new Page.Buttons());
+            Class.ClassFrame.buttonSotrudnic = buttons;
+            Event.Navigate(new Page.List());
+            Class.ClassFrame.events = Event;
             List<Sotrudnik> sotrud = Class.ClassBase.Bd.Sotrudnik.ToList();
+           
             fio_polzoval.Items.Add("Не выбрано");
             for (int i = 0; i < sotrud.Count; i++)  // цикл для записи в выпадающий список всех пород котов из БД
             {
                 fio_polzoval.Items.Add(sotrud[i].Fio);
             }
             fio_polzoval.SelectedIndex = 0;
-            if(id!=0)
-            {
-                Sotrudnik img;
-                img= Class.ClassBase.Bd.Sotrudnik.FirstOrDefault(x=>x.SotrudnikID==id);
-                polzovatelImg.Source = Convert.ToString(img.Photo);
-            }
+           
         }
 
 
@@ -47,9 +47,10 @@ namespace Sessia_2_YP.Page
             List<Sotrudnik> imgSotr = Class.ClassBase.Bd.Sotrudnik.ToList();
             if (fio_polzoval.SelectedIndex > 0)
             {
-                imgSotr = imgSotr.Where(x => x.SotrudnikID == fio_polzoval.SelectedIndex).ToList();
-                Page.PageAbonent.id = fio_polzoval.SelectedIndex;
-                Class.ClassFrame.hod.Navigate(new PageAbonent());
+                img = imgSotr.FirstOrDefault(x => x.SotrudnikID == fio_polzoval.SelectedIndex);
+                Page.Buttons.id = img.Role;
+                Class.ClassFrame.buttonSotrudnic.Navigate(new Buttons());
+            
             }
           
         }

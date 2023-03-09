@@ -10,5 +10,7 @@ namespace Sessia_2_YP.Class
     internal class ClassFrame
     {
         public static Frame hod;
+        public static Frame buttonSotrudnic;
+        public static Frame events;
     }
 }

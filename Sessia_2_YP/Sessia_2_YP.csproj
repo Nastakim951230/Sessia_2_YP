@@ -78,6 +78,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Page\Buttons.xaml.cs">
+      <DependentUpon>Buttons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\List.xaml.cs">
+      <DependentUpon>List.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\PageAbonent.xaml.cs">
       <DependentUpon>PageAbonent.xaml</DependentUpon>
     </Compile>
@@ -99,6 +105,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Page\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\PageAbonent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +194,7 @@
     <Resource Include="Image\ID1544.jpg" />
     <Resource Include="Image\ID1545.jpg" />
     <Resource Include="Image\Фото для заглушки при отсутствии фото сотрудника.jpg" />
+    <Resource Include="Image\Лого ТНС.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
