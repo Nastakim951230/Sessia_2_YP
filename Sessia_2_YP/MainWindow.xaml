@@ -1,0 +1,98 @@
+﻿<Window x:Class="Sessia_2_YP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sessia_2_YP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel >
+                    <StackPanel VerticalAlignment="Top">
+                        <Button Height="80" Name="Logotip" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Логотип 
+                                   ТНС" TextWrapping="Wrap" TextAlignment="Center"/>
+
+                            </Button.Content>
+                        </Button>
+
+                        <Button  Name="Abonent" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Аболненты" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button.Content>
+                        </Button>
+
+
+                        <Button  Name="oborydovanue" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Управление 
+                                   оборудованием" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button.Content>
+                        </Button>
+                        <Button  Name="activ" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Активы" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button.Content>
+                        </Button>
+                        <Button  Name="billing" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Биллинг" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button.Content>
+                        </Button>
+                        <Button  Name="poddergka" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Поддержка 
+                                   пользователей" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button.Content>
+                        </Button>
+                        <Button  Name="crm" Style="{StaticResource buttondesin}">
+                            <Button.Content>
+                                <TextBlock Style="{StaticResource tbButton}" Text="CRM" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Button   Height="40"
+                        Template="{StaticResource CTButonMainPage}" Style="{StaticResource buttondesincrug}" >
+                            <Button.Content>
+                                <TextBlock  Style="{StaticResource tbButtonDesin}" Text="проф." TextWrapping="Wrap" TextAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                        <Button   Height="40"
+                        Template="{StaticResource CTButonMainPage}" Style="{StaticResource buttondesincrug}" Margin="0,5,0,5">
+                            <Button.Content>
+                                <TextBlock  Style="{StaticResource tbButtonDesin}" Text="?" TextWrapping="Wrap" TextAlignment="Center" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="85"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel HorizontalAlignment="Left">
+                            <TextBlock Style="{StaticResource TextLog}" >Абоненты ТНС</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                        <ComboBox Name="fio_polzoval" SelectionChanged="fio_polzoval_SelectionChanged"></ComboBox>
+                        <Image  Name="polzovatelImg"></Image>
+                    </StackPanel>
+
+                </Grid>
+                <Grid Grid.Row="1"></Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
