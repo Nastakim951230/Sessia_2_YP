@@ -6,7 +6,7 @@
     <Application.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Bahnschrift Light"></Setter>
-            <Setter Property="FontSize" Value="22"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
         </Style>
 
         <Style x:Key="TextLog" TargetType="TextBlock">

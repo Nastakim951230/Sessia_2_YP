@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassSotrudnik.cs" />
+    <Compile Include="Class\ClassBase.cs" />
+    <Compile Include="Class\ClassFrame.cs" />
     <Compile Include="Gender.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -74,6 +77,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Page\PageAbonent.xaml.cs">
+      <DependentUpon>PageAbonent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -93,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Page\PageAbonent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model1.Context.cs">
@@ -139,6 +149,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\ID1516.jpg" />
+    <Resource Include="Image\ID1517.png" />
+    <Resource Include="Image\ID1518.png" />
+    <Resource Include="Image\ID1519.png" />
+    <Resource Include="Image\ID1520.png" />
+    <Resource Include="Image\ID1521.jpg" />
+    <Resource Include="Image\ID1522.png" />
+    <Resource Include="Image\ID1523.jpg" />
+    <Resource Include="Image\ID1524.jpg" />
+    <Resource Include="Image\ID1525.jpg" />
+    <Resource Include="Image\ID1526.jpg" />
+    <Content Include="Image\ID1527.jfif" />
+    <Resource Include="Image\ID1528.jpg" />
+    <Resource Include="Image\ID1529.jpg" />
+    <Resource Include="Image\ID1530.jpg" />
+    <Resource Include="Image\ID1531.jpg" />
+    <Resource Include="Image\ID1532.jpg" />
+    <Resource Include="Image\ID1533.jpg" />
+    <Resource Include="Image\ID1534.jpg" />
+    <Resource Include="Image\ID1535.png" />
+    <Resource Include="Image\ID1536.png" />
+    <Resource Include="Image\ID1537.jpg" />
+    <Resource Include="Image\ID1538.jpg" />
+    <Resource Include="Image\ID1539.png" />
+    <Resource Include="Image\ID1540.jpg" />
+    <Resource Include="Image\ID1541.jpg" />
+    <Resource Include="Image\ID1542.jpg" />
+    <Resource Include="Image\ID1543.jpg" />
+    <Resource Include="Image\ID1544.jpg" />
+    <Resource Include="Image\ID1545.jpg" />
+    <Resource Include="Image\Фото для заглушки при отсутствии фото сотрудника.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

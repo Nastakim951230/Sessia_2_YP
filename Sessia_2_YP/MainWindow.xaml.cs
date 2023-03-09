@@ -20,14 +20,13 @@ namespace Sessia_2_YP
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
             InitializeComponent();
-            fio_polzoval.ItemsSource=
-        }
-
-        private void fio_polzoval_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            Class.ClassBase.Bd = new Base();
+          peregod.Navigate(new Page.PageAbonent());
+            Class.ClassFrame.hod = peregod;
 
         }
     }
