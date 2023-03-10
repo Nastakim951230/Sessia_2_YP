@@ -188,7 +188,6 @@
     <Resource Include="Image\Sotrudnik\ID1524.jpg" />
     <Resource Include="Image\Sotrudnik\ID1525.jpg" />
     <Resource Include="Image\Sotrudnik\ID1526.jpg" />
-    <Content Include="Image\Sotrudnik\ID1527.jfif" />
     <Resource Include="Image\Sotrudnik\ID1528.jpg" />
     <Resource Include="Image\Sotrudnik\ID1529.jpg" />
     <Resource Include="Image\Sotrudnik\ID1530.jpg" />
@@ -209,6 +208,7 @@
     <Resource Include="Image\Sotrudnik\ID1545.jpg" />
     <Resource Include="Image\Фото для заглушки при отсутствии фото сотрудника.jpg" />
     <Resource Include="Image\Sotrudnik\Лого ТНС.jpg" />
+    <Content Include="Image\Sotrudnik\ID1527.jfif" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
