@@ -4,21 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CRM23Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CRM23Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventsID" />
+          </Key>
+          <Property Name="EventsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DataEvent" Type="datetime" Nullable="false" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="Gender_ID" />
           </Key>
           <Property Name="Gender_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="InformatsiaSotrudnika">
-          <Key>
-            <PropertyRef Name="InformatsiaSotrudnikaID" />
-          </Key>
-          <Property Name="InformatsiaSotrudnikaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Role" Type="int" Nullable="false" />
-          <Property Name="Informatsia" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -40,15 +41,15 @@
           <Property Name="Photo" Type="nvarchar(max)" />
           <Property Name="Role" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_InformatsiaSotrudnika_Role">
+        <Association Name="FK_Events_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="InformatsiaSotrudnika" Type="Self.InformatsiaSotrudnika" Multiplicity="*" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="RoleID" />
             </Principal>
-            <Dependent Role="InformatsiaSotrudnika">
-              <PropertyRef Name="ID_Role" />
+            <Dependent Role="Events">
+              <PropertyRef Name="IdRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -65,24 +66,47 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище CRM23ModelContainer">
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InformatsiaSotrudnika" EntityType="Self.InformatsiaSotrudnika" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_InformatsiaSotrudnika_Role" Association="Self.FK_InformatsiaSotrudnika_Role">
+          <AssociationSet Name="FK_Events_Role" Association="Self.FK_Events_Role">
             <End Role="Role" EntitySet="Role" />
-            <End Role="InformatsiaSotrudnika" EntitySet="InformatsiaSotrudnika" />
+            <End Role="Events" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="FK_Sotrudnik_Role" Association="Self.FK_Sotrudnik_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Sotrudnik" EntitySet="Sotrudnik" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CRM23Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Base" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Events" EntityType="CRM23Model.Events" />
+          <EntitySet Name="Gender" EntityType="CRM23Model.Gender" />
+          <EntitySet Name="Role" EntityType="CRM23Model.Role" />
+          <EntitySet Name="Sotrudnik" EntityType="CRM23Model.Sotrudnik" />
+          <AssociationSet Name="FK_Events_Role" Association="CRM23Model.FK_Events_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Role" Association="CRM23Model.FK_Sotrudnik_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventsID" />
+          </Key>
+          <Property Name="EventsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataEvent" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="CRM23Model.FK_Events_Role" FromRole="Events" ToRole="Role" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="Gender_ID" />
@@ -90,53 +114,44 @@
           <Property Name="Gender_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Gender1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="InformatsiaSotrudnika">
-          <Key>
-            <PropertyRef Name="InformatsiaSotrudnikaID" />
-          </Key>
-          <Property Name="InformatsiaSotrudnikaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Role" Type="Int32" Nullable="false" />
-          <Property Name="Informatsia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_InformatsiaSotrudnika_Role" FromRole="InformatsiaSotrudnika" ToRole="Role" />
-        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
           <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="InformatsiaSotrudnika" Relationship="Self.FK_InformatsiaSotrudnika_Role" FromRole="Role" ToRole="InformatsiaSotrudnika" />
-          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Sotrudnik_Role" FromRole="Role" ToRole="Sotrudnik" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Events" Relationship="CRM23Model.FK_Events_Role" FromRole="Role" ToRole="Events" />
+          <NavigationProperty Name="Sotrudnik" Relationship="CRM23Model.FK_Sotrudnik_Role" FromRole="Role" ToRole="Sotrudnik" />
         </EntityType>
         <EntityType Name="Sotrudnik">
           <Key>
             <PropertyRef Name="SotrudnikID" />
           </Key>
           <Property Name="SotrudnikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NomerTelefon" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NomerTelefon" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role1" Relationship="Self.FK_Sotrudnik_Role" FromRole="Sotrudnik" ToRole="Role" />
+          <NavigationProperty Name="Role1" Relationship="CRM23Model.FK_Sotrudnik_Role" FromRole="Sotrudnik" ToRole="Role" />
         </EntityType>
-        <Association Name="FK_InformatsiaSotrudnika_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="InformatsiaSotrudnika" Type="Self.InformatsiaSotrudnika" Multiplicity="*" />
+        <Association Name="FK_Events_Role">
+          <End Type="CRM23Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="CRM23Model.Events" Role="Events" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="RoleID" />
             </Principal>
-            <Dependent Role="InformatsiaSotrudnika">
-              <PropertyRef Name="ID_Role" />
+            <Dependent Role="Events">
+              <PropertyRef Name="IdRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sotrudnik_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+          <End Type="CRM23Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="CRM23Model.Sotrudnik" Role="Sotrudnik" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="RoleID" />
@@ -146,62 +161,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Base" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Gender" EntityType="Self.Gender" />
-          <EntitySet Name="InformatsiaSotrudnika" EntityType="Self.InformatsiaSotrudnika" />
-          <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
-          <AssociationSet Name="FK_InformatsiaSotrudnika_Role" Association="Self.FK_InformatsiaSotrudnika_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="InformatsiaSotrudnika" EntitySet="InformatsiaSotrudnika" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sotrudnik_Role" Association="Self.FK_Sotrudnik_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище CRM23ModelContainer" CdmEntityContainer="Base">
-          <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="CRM23Model.Gender">
-              <MappingFragment StoreEntitySet="Gender">
-                <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
-                <ScalarProperty Name="Gender1" ColumnName="Gender" />
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="CRM23Model.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="DataEvent" ColumnName="DataEvent" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="EventsID" ColumnName="EventsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InformatsiaSotrudnika">
-            <EntityTypeMapping TypeName="CRM23Model.InformatsiaSotrudnika">
-              <MappingFragment StoreEntitySet="InformatsiaSotrudnika">
-                <ScalarProperty Name="InformatsiaSotrudnikaID" ColumnName="InformatsiaSotrudnikaID" />
-                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
-                <ScalarProperty Name="Informatsia" ColumnName="Informatsia" />
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="CRM23Model.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Gender1" ColumnName="Gender" />
+                <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="CRM23Model.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sotrudnik">
             <EntityTypeMapping TypeName="CRM23Model.Sotrudnik">
               <MappingFragment StoreEntitySet="Sotrudnik">
-                <ScalarProperty Name="SotrudnikID" ColumnName="SotrudnikID" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="NomerTelefon" ColumnName="NomerTelefon" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NomerTelefon" ColumnName="NomerTelefon" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="SotrudnikID" ColumnName="SotrudnikID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

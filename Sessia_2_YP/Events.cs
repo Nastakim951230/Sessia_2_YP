@@ -12,11 +12,12 @@ namespace Sessia_2_YP
     using System;
     using System.Collections.Generic;
     
-    public partial class InformatsiaSotrudnika
+    public partial class Events
     {
-        public int InformatsiaSotrudnikaID { get; set; }
-        public int ID_Role { get; set; }
-        public string Informatsia { get; set; }
+        public int EventsID { get; set; }
+        public string Event { get; set; }
+        public System.DateTime DataEvent { get; set; }
+        public int IdRole { get; set; }
     
         public virtual Role Role { get; set; }
     }

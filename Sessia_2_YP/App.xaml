@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Sessia_2_YP"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="EventsTb" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            
+        </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Bahnschrift Light"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>

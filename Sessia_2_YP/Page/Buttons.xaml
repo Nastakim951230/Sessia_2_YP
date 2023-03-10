@@ -5,13 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sessia_2_YP.Page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="150"
+      d:DesignHeight="600" d:DesignWidth="150"
       Title="Buttons">
 
     <Grid>
-        <StackPanel >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
             <StackPanel VerticalAlignment="Top">
-                <Image Source="../Image/Лого ТНС.jpg"></Image>
+                <Image Margin="10" Height="100" Source="../Image/Лого ТНС.jpg"></Image>
 
                 <Button  Name="Abonent" Style="{StaticResource buttondesin}" Visibility="Visible">
                     <Button.Content>
@@ -48,7 +52,9 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
-            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                 <Button   Height="40"
                         Template="{StaticResource CTButonMainPage}" Style="{StaticResource buttondesincrug}" >
                     <Button.Content>
@@ -62,6 +68,6 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Page>

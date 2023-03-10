@@ -17,7 +17,7 @@ namespace Sessia_2_YP
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
-            this.InformatsiaSotrudnika = new HashSet<InformatsiaSotrudnika>();
+            this.Events = new HashSet<Events>();
             this.Sotrudnik = new HashSet<Sotrudnik>();
         }
     
@@ -25,7 +25,7 @@ namespace Sessia_2_YP
         public string Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InformatsiaSotrudnika> InformatsiaSotrudnika { get; set; }
+        public virtual ICollection<Events> Events { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sotrudnik> Sotrudnik { get; set; }
     }

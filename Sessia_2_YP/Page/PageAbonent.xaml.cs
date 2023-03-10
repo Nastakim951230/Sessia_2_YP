@@ -50,9 +50,18 @@ namespace Sessia_2_YP.Page
                 img = imgSotr.FirstOrDefault(x => x.SotrudnikID == fio_polzoval.SelectedIndex);
                 Page.Buttons.id = img.Role;
                 Class.ClassFrame.buttonSotrudnic.Navigate(new Buttons());
-            
+                Page.List.id=img.Role;
+                Class.ClassFrame.events.Navigate(new List());
+
             }
-          
+          else
+            {
+                Page.Buttons.id = 0;
+                Class.ClassFrame.buttonSotrudnic.Navigate(new Buttons());
+                Page.List.id = 0;
+                Class.ClassFrame.events.Navigate(new List());
+
+            }
         }
     }
 }

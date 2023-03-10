@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sessia_2_YP.Page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="200"
+      d:DesignHeight="450" d:DesignWidth="250"
       Title="List">
 
     <Grid>
@@ -15,15 +15,30 @@
             <RowDefinition/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Background="#FFF3F3F3">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Событие</TextBlock>
-            <TextBlock VerticalAlignment="Bottom">_______________________</TextBlock>
+            
         </Grid>
         <Grid Grid.Row="1">
-            <Button Background="White">▲</Button>
+            <Button Background="#FFF3F3F3">▲</Button>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Background="White">▼</Button>
+            <Button Background="#FFF3F3F3">▼</Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <ListView Name="ListEvent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border>
+                            <Grid Background="#FFC4C4C4">
+                                <StackPanel>
+                                    <TextBlock Width="250" Text="{Binding Event}" TextWrapping="Wrap" TextAlignment="Center" ></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 </Page>

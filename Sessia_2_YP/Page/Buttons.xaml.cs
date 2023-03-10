@@ -94,7 +94,15 @@ namespace Sessia_2_YP.Page
                 poddergka.Visibility = Visibility.Collapsed;
                 crm.Visibility = Visibility.Visible;
             }
-
+            else if(id==0)
+            {
+                Abonent.Visibility = Visibility.Collapsed;
+                oborydovanue.Visibility = Visibility.Collapsed;
+                activ.Visibility = Visibility.Collapsed;
+                billing.Visibility = Visibility.Collapsed;
+                poddergka.Visibility = Visibility.Collapsed;
+                crm.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

@@ -20,9 +20,27 @@ namespace Sessia_2_YP.Page
     /// </summary>
     public partial class List 
     {
+        public static int id;
         public List()
         {
             InitializeComponent();
+
+
+            string dateInput = "27/08/2023";
+            var parsedDate = DateTime.Parse(dateInput);
+           
+            if (id != 0)
+            {
+                ListEvent.ItemsSource = Class.ClassBase.Bd.Events.Where(x => x.IdRole == id && x.DataEvent == parsedDate).ToList();
+            }
+        
+
+            //события на сегодняшний день
+            //if (id != 0)
+            //{
+            //    ListEvent.ItemsSource = Class.ClassBase.Bd.Events.Where(x => x.IdRole == id && x.DataEvent == DateTime.Today).ToList();
+            //}
+           
         }
     }
 }

@@ -25,8 +25,8 @@ namespace Sessia_2_YP
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Events> Events { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
-        public virtual DbSet<InformatsiaSotrudnika> InformatsiaSotrudnika { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Sotrudnik> Sotrudnik { get; set; }
     }
