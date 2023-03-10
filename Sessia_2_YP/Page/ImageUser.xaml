@@ -9,6 +9,6 @@
       Title="ImageUser">
 
     <Grid>
-          <Image Height="50"  Name="polzovatelImg"></Image>
+        <Image Height="50" Name="polzovatelImg"></Image>
     </Grid>
 </Page>
