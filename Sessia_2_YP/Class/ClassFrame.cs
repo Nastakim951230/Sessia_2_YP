@@ -12,5 +12,7 @@ namespace Sessia_2_YP.Class
         public static Frame hod;
         public static Frame buttonSotrudnic;
         public static Frame events;
+        public static Frame titleframe;
+        public static Frame imgUser;
     }
 }

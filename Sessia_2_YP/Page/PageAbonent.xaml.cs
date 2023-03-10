@@ -29,6 +29,10 @@ namespace Sessia_2_YP.Page
             Class.ClassFrame.buttonSotrudnic = buttons;
             Event.Navigate(new Page.List());
             Class.ClassFrame.events = Event;
+            TitleFrame.Navigate(new Page.PageTitle());
+            Class.ClassFrame.titleframe = TitleFrame;
+            Img.Navigate(new Page.ImageUser());
+            Class.ClassFrame.imgUser = Img;
             List<Sotrudnik> sotrud = Class.ClassBase.Bd.Sotrudnik.ToList();
            
             fio_polzoval.Items.Add("Не выбрано");
@@ -52,7 +56,10 @@ namespace Sessia_2_YP.Page
                 Class.ClassFrame.buttonSotrudnic.Navigate(new Buttons());
                 Page.List.id=img.Role;
                 Class.ClassFrame.events.Navigate(new List());
-
+                Page.PageTitle.index_button = 1;
+                Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+                Page.ImageUser.image = fio_polzoval.SelectedIndex;
+                Class.ClassFrame.imgUser.Navigate(new Page.ImageUser());
             }
           else
             {
@@ -60,6 +67,10 @@ namespace Sessia_2_YP.Page
                 Class.ClassFrame.buttonSotrudnic.Navigate(new Buttons());
                 Page.List.id = 0;
                 Class.ClassFrame.events.Navigate(new List());
+                Page.PageTitle.index_button = 1;
+                Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+                Page.ImageUser.image = 0;
+                Class.ClassFrame.imgUser.Navigate(new Page.ImageUser());
 
             }
         }

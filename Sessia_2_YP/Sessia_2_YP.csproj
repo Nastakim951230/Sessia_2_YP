@@ -81,11 +81,17 @@
     <Compile Include="Page\Buttons.xaml.cs">
       <DependentUpon>Buttons.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Page\ImageUser.xaml.cs">
+      <DependentUpon>ImageUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\PageAbonent.xaml.cs">
       <DependentUpon>PageAbonent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\PageTitle.xaml.cs">
+      <DependentUpon>PageTitle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -109,11 +115,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page\ImageUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\List.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\PageAbonent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\PageTitle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,38 +177,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\ID1516.jpg" />
-    <Resource Include="Image\ID1517.png" />
-    <Resource Include="Image\ID1518.png" />
-    <Resource Include="Image\ID1519.png" />
-    <Resource Include="Image\ID1520.png" />
-    <Resource Include="Image\ID1521.jpg" />
-    <Resource Include="Image\ID1522.png" />
-    <Resource Include="Image\ID1523.jpg" />
-    <Resource Include="Image\ID1524.jpg" />
-    <Resource Include="Image\ID1525.jpg" />
-    <Resource Include="Image\ID1526.jpg" />
-    <Content Include="Image\ID1527.jfif" />
-    <Resource Include="Image\ID1528.jpg" />
-    <Resource Include="Image\ID1529.jpg" />
-    <Resource Include="Image\ID1530.jpg" />
-    <Resource Include="Image\ID1531.jpg" />
-    <Resource Include="Image\ID1532.jpg" />
-    <Resource Include="Image\ID1533.jpg" />
-    <Resource Include="Image\ID1534.jpg" />
-    <Resource Include="Image\ID1535.png" />
-    <Resource Include="Image\ID1536.png" />
-    <Resource Include="Image\ID1537.jpg" />
-    <Resource Include="Image\ID1538.jpg" />
-    <Resource Include="Image\ID1539.png" />
-    <Resource Include="Image\ID1540.jpg" />
-    <Resource Include="Image\ID1541.jpg" />
-    <Resource Include="Image\ID1542.jpg" />
-    <Resource Include="Image\ID1543.jpg" />
-    <Resource Include="Image\ID1544.jpg" />
-    <Resource Include="Image\ID1545.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1516.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1517.png" />
+    <Resource Include="Image\Sotrudnik\ID1518.png" />
+    <Resource Include="Image\Sotrudnik\ID1519.png" />
+    <Resource Include="Image\Sotrudnik\ID1520.png" />
+    <Resource Include="Image\Sotrudnik\ID1521.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1522.png" />
+    <Resource Include="Image\Sotrudnik\ID1523.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1524.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1525.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1526.jpg" />
+    <Content Include="Image\Sotrudnik\ID1527.jfif" />
+    <Resource Include="Image\Sotrudnik\ID1528.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1529.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1530.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1531.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1532.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1533.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1534.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1535.png" />
+    <Resource Include="Image\Sotrudnik\ID1536.png" />
+    <Resource Include="Image\Sotrudnik\ID1537.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1538.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1539.png" />
+    <Resource Include="Image\Sotrudnik\ID1540.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1541.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1542.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1543.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1544.jpg" />
+    <Resource Include="Image\Sotrudnik\ID1545.jpg" />
     <Resource Include="Image\Фото для заглушки при отсутствии фото сотрудника.jpg" />
-    <Resource Include="Image\Лого ТНС.jpg" />
+    <Resource Include="Image\Sotrudnik\Лого ТНС.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -209,5 +223,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

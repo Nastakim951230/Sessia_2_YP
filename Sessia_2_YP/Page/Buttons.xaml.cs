@@ -104,5 +104,41 @@ namespace Sessia_2_YP.Page
                 crm.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void Abonent_Click(object sender, RoutedEventArgs e)
+        {
+            Page.PageTitle.index_button = 1;
+            Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+        }
+
+        private void oborydovanue_Click(object sender, RoutedEventArgs e)
+        {
+            Page.PageTitle.index_button = 2;
+            Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+        }
+
+        private void activ_Click(object sender, RoutedEventArgs e)
+        {
+            Page.PageTitle.index_button = 3;
+            Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+        }
+
+        private void billing_Click(object sender, RoutedEventArgs e)
+        {
+            Page.PageTitle.index_button = 4;
+            Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+        }
+
+        private void poddergka_Click(object sender, RoutedEventArgs e)
+        {
+            Page.PageTitle.index_button = 5;
+            Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+        }
+
+        private void crm_Click(object sender, RoutedEventArgs e)
+        {
+            Page.PageTitle.index_button = 6;
+            Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+        }
     }
 }

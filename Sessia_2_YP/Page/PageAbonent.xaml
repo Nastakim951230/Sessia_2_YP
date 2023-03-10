@@ -19,19 +19,30 @@
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="85"/>
+                    <RowDefinition Height="95"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Style="{StaticResource TextLog}" >Абоненты ТНС</TextBlock>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Frame Name="TitleFrame" NavigationUIVisibility="Hidden"></Frame>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center" Margin="10">
+                                <ComboBox Name="fio_polzoval" SelectionChanged="fio_polzoval_SelectionChanged"></ComboBox>
+                            </StackPanel>
+                            <StackPanel Height="50">
+                                <Frame Name="Img" NavigationUIVisibility="Hidden"></Frame>
+                            </StackPanel>
+                          
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
-                        <ComboBox Name="fio_polzoval" SelectionChanged="fio_polzoval_SelectionChanged"></ComboBox>
-                        <Image Height="30" Source="../Image/Фото для заглушки при отсутствии фото сотрудника.jpg" Name="polzovatelImg"></Image>
-                    </StackPanel>
+                    </Grid>
+                   
+                    
 
                 </Grid>
                 <Grid Grid.Row="1">
