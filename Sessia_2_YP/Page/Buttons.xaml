@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sessia_2_YP.Page"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="170"
+      d:DesignHeight="600" d:DesignWidth="180"
       Title="Buttons">
 
     <Grid>
@@ -16,58 +16,56 @@
         <Grid Grid.Row="0">
             <StackPanel VerticalAlignment="Top">
                 <Image Margin="10" Height="100" Source="../Image/Sotrudnik/Лого ТНС.jpg"></Image>
-                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
-                    <StackPanel>
-                    <Button  Name="Abonent" Style="{StaticResource buttondesin}" Visibility="Visible" Click="Abonent_Click">
-                        
-                    <Button.Content>
-                            <StackPanel>
-                                <Image Source="../Image/buttonImage/Абоненты.png"></Image>
-                            <TextBlock Style="{StaticResource tbButton}" Text="Аболненты" TextWrapping="Wrap" TextAlignment="Center"/>
-                            </StackPanel>
-                        </Button.Content>
-                        
-                </Button>
+                <StackPanel>
+                    <ScrollViewer  x:Name="scroll" CanContentScroll="True"  Height="480" VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <Button  x:Name="Abonent" Style="{StaticResource buttondesin}" Visibility="Visible" Click="Abonent_Click">
 
-
-                <Button  Name="oborydovanue" Style="{StaticResource buttondesin}" Visibility="Visible" Click="oborydovanue_Click">
-                    <Button.Content>
-
-                            <StackPanel>
-                                <Image Source="../Image/buttonImage/Управление обрудованием.jpg"></Image>
-                                <TextBlock Style="{StaticResource tbButton}" Text="Управление 
-                                   оборудованием" TextWrapping="Wrap" TextAlignment="Center" />
-                            </StackPanel>
-                           
-                    </Button.Content>
-                </Button>
-                <Button  Name="activ" Style="{StaticResource buttondesin}" Visibility="Visible" Click="activ_Click">
-                    <Button.Content>
                                 <StackPanel>
-                                    <Image Source="../Image/buttonImage/Активы.png"></Image>
+                                    <Image Source="../Image/buttonImage/Абоненты.png"/>
+                                    <TextBlock Style="{StaticResource tbButton}" Text="Аболненты" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+
+                            </Button>
+
+
+                            <Button  x:Name="oborydovanue" Style="{StaticResource buttondesin}" Visibility="Visible" Click="oborydovanue_Click">
+
+                                <StackPanel>
+                                    <Image Source="../Image/buttonImage/Управление обрудованием.jpg"/>
+                                    <TextBlock Style="{StaticResource tbButton}" Text="Управление                                     оборудованием" TextWrapping="Wrap" TextAlignment="Center" />
+                                </StackPanel>
+
+                            </Button>
+                            <Button  x:Name="activ" Style="{StaticResource buttondesin}" Visibility="Visible" Click="activ_Click">
+                                <StackPanel>
+                                    <Image Source="../Image/buttonImage/Активы.png"/>
                                     <TextBlock Style="{StaticResource tbButton}" Text="Активы" TextWrapping="Wrap" TextAlignment="Center"/>
                                 </StackPanel>
-                               
-                    </Button.Content>
-                </Button>
-                <Button  Name="billing" Style="{StaticResource buttondesin}" Visibility="Visible" Click="billing_Click">
-                    <Button.Content>
-                        <TextBlock Style="{StaticResource tbButton}" Text="Биллинг" TextWrapping="Wrap" TextAlignment="Center"/>
-                    </Button.Content>
-                </Button>
-                <Button  Name="poddergka" Style="{StaticResource buttondesin}" Visibility="Visible" Click="poddergka_Click">
-                    <Button.Content>
-                        <TextBlock Style="{StaticResource tbButton}" Text="Поддержка 
-                                   пользователей" TextWrapping="Wrap" TextAlignment="Center"/>
-                    </Button.Content>
-                </Button>
-                <Button  Name="crm" Style="{StaticResource buttondesin}" Visibility="Visible" Click="crm_Click">
-                    <Button.Content>
-                        <TextBlock Style="{StaticResource tbButton}" Text="CRM" TextWrapping="Wrap" TextAlignment="Center"/>
-                    </Button.Content>
-                </Button>
+                            </Button>
+                            <Button  x:Name="billing" Style="{StaticResource buttondesin}" Visibility="Visible" Click="billing_Click">
+                                <StackPanel>
+                                    <Image Source="../Image/buttonImage/Биллинг.jpg"/>
+                                    <TextBlock Style="{StaticResource tbButton}" Text="Биллинг" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button  x:Name="poddergka" Style="{StaticResource buttondesin}" Visibility="Visible" Click="poddergka_Click">
+                                <StackPanel>
+                                    <Image Source="../Image/buttonImage/Поддержка пользователей.jpg"/>
+                                    <TextBlock Style="{StaticResource tbButton}" Text="Поддержка                                     пользователей" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+
+                            </Button>
+                            <Button  x:Name="crm" Style="{StaticResource buttondesinCRM}" Visibility="Visible" Click="crm_Click" >
+                                <StackPanel>
+                                    <Image Source="../Image/buttonImage/CRM.png"/>
+                                    <TextBlock Style="{StaticResource tbButton}" Text="CRM" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+
+                            </Button>
+                        </StackPanel>
+                    </ScrollViewer>
                 </StackPanel>
-                </ScrollViewer>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
