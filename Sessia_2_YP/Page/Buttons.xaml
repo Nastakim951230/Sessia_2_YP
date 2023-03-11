@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sessia_2_YP.Page"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="150"
+      d:DesignHeight="600" d:DesignWidth="170"
       Title="Buttons">
 
     <Grid>
@@ -15,24 +15,39 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel VerticalAlignment="Top">
-                <Image Margin="10" Height="100" Source="../Image/Лого ТНС.jpg"></Image>
-
-                <Button  Name="Abonent" Style="{StaticResource buttondesin}" Visibility="Visible" Click="Abonent_Click">
+                <Image Margin="10" Height="100" Source="../Image/Sotrudnik/Лого ТНС.jpg"></Image>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                    <StackPanel>
+                    <Button  Name="Abonent" Style="{StaticResource buttondesin}" Visibility="Visible" Click="Abonent_Click">
+                        
                     <Button.Content>
-                        <TextBlock Style="{StaticResource tbButton}" Text="Аболненты" TextWrapping="Wrap" TextAlignment="Center"/>
-                    </Button.Content>
+                            <StackPanel>
+                                <Image Source="../Image/buttonImage/Абоненты.png"></Image>
+                            <TextBlock Style="{StaticResource tbButton}" Text="Аболненты" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                        
                 </Button>
 
 
                 <Button  Name="oborydovanue" Style="{StaticResource buttondesin}" Visibility="Visible" Click="oborydovanue_Click">
                     <Button.Content>
-                        <TextBlock Style="{StaticResource tbButton}" Text="Управление 
+
+                            <StackPanel>
+                                <Image Source="../Image/buttonImage/Управление обрудованием.jpg"></Image>
+                                <TextBlock Style="{StaticResource tbButton}" Text="Управление 
                                    оборудованием" TextWrapping="Wrap" TextAlignment="Center" />
+                            </StackPanel>
+                           
                     </Button.Content>
                 </Button>
                 <Button  Name="activ" Style="{StaticResource buttondesin}" Visibility="Visible" Click="activ_Click">
                     <Button.Content>
-                        <TextBlock Style="{StaticResource tbButton}" Text="Активы" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <StackPanel>
+                                    <Image Source="../Image/buttonImage/Активы.png"></Image>
+                                    <TextBlock Style="{StaticResource tbButton}" Text="Активы" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+                               
                     </Button.Content>
                 </Button>
                 <Button  Name="billing" Style="{StaticResource buttondesin}" Visibility="Visible" Click="billing_Click">
@@ -51,6 +66,8 @@
                         <TextBlock Style="{StaticResource tbButton}" Text="CRM" TextWrapping="Wrap" TextAlignment="Center"/>
                     </Button.Content>
                 </Button>
+                </StackPanel>
+                </ScrollViewer>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">

@@ -208,6 +208,12 @@
     <Resource Include="Image\Sotrudnik\ID1545.jpg" />
     <Resource Include="Image\Фото для заглушки при отсутствии фото сотрудника.jpg" />
     <Resource Include="Image\Sotrudnik\Лого ТНС.jpg" />
+    <Resource Include="Image\buttonImage\CRM.png" />
+    <Resource Include="Image\buttonImage\Абоненты.png" />
+    <Resource Include="Image\buttonImage\Активы.png" />
+    <Resource Include="Image\buttonImage\Биллинг.jpg" />
+    <Resource Include="Image\buttonImage\Поддержка пользователей.jpg" />
+    <Resource Include="Image\buttonImage\Управление обрудованием.jpg" />
     <Content Include="Image\Sotrudnik\ID1527.jfif" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

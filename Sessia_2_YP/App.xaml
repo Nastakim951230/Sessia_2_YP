@@ -31,6 +31,7 @@
             <Setter Property="Background" Value="#FFF3F3F3"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Width" Value="160"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
 
         </Style>
