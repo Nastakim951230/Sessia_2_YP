@@ -12,17 +12,21 @@ namespace Sessia_2_YP
     using System;
     using System.Collections.Generic;
     
-    public partial class Gender
+    public partial class ResidentialAddress
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Gender()
+        public ResidentialAddress()
         {
             this.Subscriber = new HashSet<Subscriber>();
         }
     
-        public int Gender_ID { get; set; }
-        public string Gender1 { get; set; }
+        public string ResidentialAddressID { get; set; }
+        public string PrefixCode { get; set; }
+        public int RaionID { get; set; }
+        public byte[] Prefix { get; set; }
+        public Nullable<int> House { get; set; }
     
+        public virtual Raion Raion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscriber> Subscriber { get; set; }
     }

@@ -5,11 +5,47 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5e9497228f384ef69bc474f19de0fff2" Name="Diagram1" ZoomLevel="64">
-        <EntityTypeShape EntityType="CRM23Model.Events" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="CRM23Model.Gender" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM23Model.Role" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="CRM23Model.Sotrudnik" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="CRM23Model.BuildingType" Width="1.5" PointX="1.5" PointY="26.875" />
+        <EntityTypeShape EntityType="CRM23Model.ConnectedService" Width="1.5" PointX="6" PointY="3.75" />
+        <EntityTypeShape EntityType="CRM23Model.Contract" Width="1.5" PointX="3.75" PointY="12" />
+        <EntityTypeShape EntityType="CRM23Model.ContractType" Width="1.5" PointX="1.5" PointY="8.625" />
+        <EntityTypeShape EntityType="CRM23Model.CRM" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="CRM23Model.Equipment" Width="1.5" PointX="8" PointY="16.5" />
+        <EntityTypeShape EntityType="CRM23Model.EquipmentType" Width="1.5" PointX="5.75" PointY="17" />
+        <EntityTypeShape EntityType="CRM23Model.Events" Width="1.5" PointX="8" PointY="10.75" />
+        <EntityTypeShape EntityType="CRM23Model.Gender" Width="1.5" PointX="1.5" PointY="29.75" />
+        <EntityTypeShape EntityType="CRM23Model.InstallationEquipment" Width="1.5" PointX="10.25" PointY="11.25" />
+        <EntityTypeShape EntityType="CRM23Model.ProblemType" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="CRM23Model.Raion" Width="1.5" PointX="1.5" PointY="23.5" />
+        <EntityTypeShape EntityType="CRM23Model.ReasonForTermination" Width="1.5" PointX="1.5" PointY="11" />
+        <EntityTypeShape EntityType="CRM23Model.ResidentialAddress" Width="1.5" PointX="1.5" PointY="19.5" />
+        <EntityTypeShape EntityType="CRM23Model.Role" Width="1.5" PointX="5.75" PointY="9" />
+        <EntityTypeShape EntityType="CRM23Model.Service" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="CRM23Model.Sotrudnik" Width="1.5" PointX="8" PointY="7.125" />
+        <EntityTypeShape EntityType="CRM23Model.StatusServices" Width="1.5" PointX="0.75" PointY="34.875" />
+        <EntityTypeShape EntityType="CRM23Model.Subscriber" Width="1.5" PointX="1.5" PointY="13.375" />
+        <EntityTypeShape EntityType="CRM23Model.TypeOfService" Width="1.5" PointX="0.75" PointY="37.125" />
+        <EntityTypeShape EntityType="CRM23Model.TypeServices" Width="1.5" PointX="0.75" PointY="32.5" />
+        <AssociationConnector Association="CRM23Model.FK_Raion_BuildingType" />
+        <AssociationConnector Association="CRM23Model.FK_ConnectedService_Contract" />
+        <AssociationConnector Association="CRM23Model.FK_ConnectedService_Service" />
+        <AssociationConnector Association="CRM23Model.FK_Contract_ContractType" />
+        <AssociationConnector Association="CRM23Model.FK_Contract_ReasonForTermination" />
+        <AssociationConnector Association="CRM23Model.FK_Contract_Subscriber" />
+        <AssociationConnector Association="CRM23Model.FK_CRM_ProblemType" />
+        <AssociationConnector Association="CRM23Model.FK_CRM_Service" />
+        <AssociationConnector Association="CRM23Model.FK_CRM_StatusServices" />
+        <AssociationConnector Association="CRM23Model.FK_CRM_Subscriber" />
+        <AssociationConnector Association="CRM23Model.FK_CRM_TypeOfService" />
+        <AssociationConnector Association="CRM23Model.FK_CRM_TypeServices" />
+        <AssociationConnector Association="CRM23Model.FK_Equipment_EquipmentType" />
+        <AssociationConnector Association="CRM23Model.FK_InstallationEquipment_Equipment" />
         <AssociationConnector Association="CRM23Model.FK_Events_Role" />
+        <AssociationConnector Association="CRM23Model.FK_Subscriber_Gender" />
+        <AssociationConnector Association="CRM23Model.FK_InstallationEquipment_Sotrudnik" />
+        <AssociationConnector Association="CRM23Model.FK_InstallationEquipment_Subscriber" />
+        <AssociationConnector Association="CRM23Model.FK_ResidentialAddress_Raion" />
+        <AssociationConnector Association="CRM23Model.FK_Subscriber_ResidentialAddress" />
         <AssociationConnector Association="CRM23Model.FK_Sotrudnik_Role" />
       </Diagram>
     </edmx:Diagrams>

@@ -14,5 +14,6 @@ namespace Sessia_2_YP.Class
         public static Frame events;
         public static Frame titleframe;
         public static Frame imgUser;
+        public static Frame modul;
     }
 }

@@ -12,18 +12,14 @@ namespace Sessia_2_YP
     using System;
     using System.Collections.Generic;
     
-    public partial class Gender
+    public partial class ConnectedService
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Gender()
-        {
-            this.Subscriber = new HashSet<Subscriber>();
-        }
+        public int ConnectedServiceID { get; set; }
+        public int ContractsID { get; set; }
+        public int ServicesID { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
-        public int Gender_ID { get; set; }
-        public string Gender1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subscriber> Subscriber { get; set; }
+        public virtual Contract Contract { get; set; }
+        public virtual Service Service { get; set; }
     }
 }

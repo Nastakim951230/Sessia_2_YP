@@ -12,18 +12,18 @@ namespace Sessia_2_YP
     using System;
     using System.Collections.Generic;
     
-    public partial class Gender
+    public partial class EquipmentType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Gender()
+        public EquipmentType()
         {
-            this.Subscriber = new HashSet<Subscriber>();
+            this.Equipment = new HashSet<Equipment>();
         }
     
-        public int Gender_ID { get; set; }
-        public string Gender1 { get; set; }
+        public int EquipmentTypeID { get; set; }
+        public string Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subscriber> Subscriber { get; set; }
+        public virtual ICollection<Equipment> Equipment { get; set; }
     }
 }

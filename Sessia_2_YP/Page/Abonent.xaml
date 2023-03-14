@@ -1,0 +1,49 @@
+﻿<Page x:Class="Sessia_2_YP.Page.Abonent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sessia_2_YP.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="505" d:DesignWidth="570"
+      Title="Abonent">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" Margin="10,0,0,0">Поиск по</TextBlock>
+                <ComboBox Name="cbPoisk" SelectionChanged="cbPoisk_SelectionChanged" Margin="5,0,0,0">
+                    <ComboBoxItem>Без поиска</ComboBoxItem>
+                    <ComboBoxItem>Фамилии</ComboBoxItem>
+                    <ComboBoxItem>Району</ComboBoxItem>
+                    <ComboBoxItem>Улице</ComboBoxItem>
+                    <ComboBoxItem>Лицевому счету</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="Poisk" Width="250" TextChanged="Poisk_TextChanged" Margin="10,0,10,0" Visibility="Collapsed"></TextBox>
+                <ComboBox Name="Street" SelectionChanged="Street_SelectionChanged" Margin="10,0,10,0" Visibility="Collapsed"></ComboBox>
+
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListView Name="listAbonent">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Path=FIO}"></GridViewColumn>
+                            <GridViewColumn Header="Номер абонента" DisplayMemberBinding="{Binding Path=Nomer}"></GridViewColumn>
+                            <GridViewColumn Header="Номер договора" DisplayMemberBinding="{Binding Path=Contract.Number}"></GridViewColumn>
+                            <GridViewColumn Header="Лицевой счет" DisplayMemberBinding="{Binding Path=Contract.PersonalAccount}"></GridViewColumn>
+                            <GridViewColumn Header="Подключенные услуги" DisplayMemberBinding="{Binding Path=service}"></GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="2"></Grid>
+    </Grid>
+</Page>

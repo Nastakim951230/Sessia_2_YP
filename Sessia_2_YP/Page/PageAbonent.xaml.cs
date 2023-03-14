@@ -33,6 +33,8 @@ namespace Sessia_2_YP.Page
             Class.ClassFrame.titleframe = TitleFrame;
             Img.Navigate(new Page.ImageUser());
             Class.ClassFrame.imgUser = Img;
+            Module.Navigate(new Page.Abonent());
+            Class.ClassFrame.modul = Module;
             List<Sotrudnik> sotrud = Class.ClassBase.Bd.Sotrudnik.ToList();
            
             fio_polzoval.Items.Add("Не выбрано");
@@ -74,5 +76,6 @@ namespace Sessia_2_YP.Page
 
             }
         }
+
     }
 }
