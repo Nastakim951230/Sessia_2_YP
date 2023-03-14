@@ -102,13 +102,45 @@ namespace Sessia_2_YP.Page
                                             }
                                         }
                                     }
-                                  
+                                   
                                 }
                                 subscribers = addSub.Distinct().ToList();
+                            }
+                            else
+                            {
+                                subscribers=subscribers.ToList();
                             }
                         }
                             break;
                         case 4:
+                        {
+                            if (!string.IsNullOrWhiteSpace(Poisk.Text))
+                            {
+                                List<Subscriber> addSub = new List<Subscriber>();
+                                List<Contract> contracts = new List<Contract>();
+                                List<Contract> contract = Class.ClassBase.Bd.Contract.ToList();
+                                List <Subscriber> subscribers1 = Class.ClassBase.Bd.Subscriber.ToList();
+                                contracts = contract.Where(x => x.personalAccount.ToLower().Contains(Poisk.Text.ToLower())).ToList();
+                                for (int i = 0; i < contracts.Count; i++)
+                                {
+                                    List<Subscriber> subscribers2 = new List<Subscriber>();
+                                    subscribers2 = subscribers1.Where(x => x.SubscriberID == contracts[i].ContractID).ToList();
+                                    if (subscribers2.Count > 0)
+                                    {
+                                        for (int j = 0; j < subscribers2.Count; j++)
+                                        {
+                                            addSub.Add(subscribers2[j]);
+                                        }
+                                    }
+
+                                }
+                                subscribers = addSub.Distinct().ToList();
+                            }
+                            else
+                            {
+                                subscribers = subscribers.ToList();
+                            }
+                        }
                             break;
                     }
                 
@@ -117,7 +149,16 @@ namespace Sessia_2_YP.Page
             {
 
             }
-            listAbonent.ItemsSource = subscribers;
+            if (subscribers.Count == 0)
+            {
+                MessageBox.Show("Нет данных об абонентах");
+                Poisk.Text = "";
+
+            }
+            else
+            {
+                listAbonent.ItemsSource = subscribers;
+            }
         }
 
         private void Poisk_TextChanged(object sender, TextChangedEventArgs e)

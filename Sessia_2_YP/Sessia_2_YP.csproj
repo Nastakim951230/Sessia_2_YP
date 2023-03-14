@@ -67,8 +67,9 @@
     <Compile Include="BuildingType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClassAbonent.cs" />
-    <Compile Include="ClassSotrudnik.cs" />
+    <Compile Include="Class\ClassContract.cs" />
+    <Compile Include="Class\ClassAbonent.cs" />
+    <Compile Include="Class\ClassSotrudnik.cs" />
     <Compile Include="Class\ClassBase.cs" />
     <Compile Include="Class\ClassFrame.cs" />
     <Compile Include="ConnectedService.cs">
