@@ -12,16 +12,18 @@ namespace Sessia_2_YP
     using System;
     using System.Collections.Generic;
     
-    public partial class ResidentialAddress
+    public partial class Street
     {
-        public string ResidentialAddressID { get; set; }
-        public string PrefixCode { get; set; }
-        public int RaionID { get; set; }
-        public string Gorod { get; set; }
-        public int StreetID { get; set; }
-        public string House { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Street()
+        {
+            this.ResidentialAddress = new HashSet<ResidentialAddress>();
+        }
     
-        public virtual Raion Raion { get; set; }
-        public virtual Street Street { get; set; }
+        public int StreetID { get; set; }
+        public string Tytle { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ResidentialAddress> ResidentialAddress { get; set; }
     }
 }

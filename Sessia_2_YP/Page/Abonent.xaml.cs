@@ -28,10 +28,10 @@ namespace Sessia_2_YP.Page
             cbPoisk.SelectedIndex = 0;
 
             Street.Items.Add("Улица не выбрана");
-            List<Raion> raions=Class.ClassBase.Bd.Raion.ToList();
-            for(int i=0;i<raions.Count;i++)
+            List<Street> streets=Class.ClassBase.Bd.Street.ToList();
+            for(int i=0;i<streets.Count;i++)
             {
-                Street.Items.Add(raions[i].Tytle);
+                Street.Items.Add(streets[i].Tytle);
             }
             Street.SelectedIndex = 0;
         }
@@ -147,6 +147,7 @@ namespace Sessia_2_YP.Page
             }
             else
             {
+             
 
             }
             if (subscribers.Count == 0)

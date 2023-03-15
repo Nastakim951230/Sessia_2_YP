@@ -43,6 +43,7 @@ namespace Sessia_2_YP
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<Sotrudnik> Sotrudnik { get; set; }
         public virtual DbSet<StatusServices> StatusServices { get; set; }
+        public virtual DbSet<Street> Street { get; set; }
         public virtual DbSet<Subscriber> Subscriber { get; set; }
         public virtual DbSet<TypeOfService> TypeOfService { get; set; }
         public virtual DbSet<TypeServices> TypeServices { get; set; }

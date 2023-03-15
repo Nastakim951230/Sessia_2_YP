@@ -134,8 +134,9 @@
           <Property Name="ResidentialAddressID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PrefixCode" Type="nvarchar(max)" Nullable="false" />
           <Property Name="RaionID" Type="int" Nullable="false" />
-          <Property Name="Prefix" Type="varbinary(max)" />
-          <Property Name="House" Type="int" />
+          <Property Name="Gorod" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StreetID" Type="int" Nullable="false" />
+          <Property Name="House" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -170,6 +171,13 @@
           </Key>
           <Property Name="StatusServicesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytle" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Subscriber">
           <Key>
@@ -422,6 +430,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ResidentialAddress_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="ResidentialAddress" Type="Self.ResidentialAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="ResidentialAddress">
+              <PropertyRef Name="StreetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sotrudnik_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
@@ -446,18 +466,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Subscriber_ResidentialAddress">
-          <End Role="ResidentialAddress" Type="Self.ResidentialAddress" Multiplicity="1" />
-          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ResidentialAddress">
-              <PropertyRef Name="ResidentialAddressID" />
-            </Principal>
-            <Dependent Role="Subscriber">
-              <PropertyRef Name="ResidentialAddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Хранилище CRM23ModelContainer">
           <EntitySet Name="BuildingType" EntityType="Self.BuildingType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConnectedService" EntityType="Self.ConnectedService" Schema="dbo" store:Type="Tables" />
@@ -477,6 +485,7 @@
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StatusServices" EntityType="Self.StatusServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfService" EntityType="Self.TypeOfService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeServices" EntityType="Self.TypeServices" Schema="dbo" store:Type="Tables" />
@@ -552,16 +561,16 @@
             <End Role="Raion" EntitySet="Raion" />
             <End Role="ResidentialAddress" EntitySet="ResidentialAddress" />
           </AssociationSet>
+          <AssociationSet Name="FK_ResidentialAddress_Street" Association="Self.FK_ResidentialAddress_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="ResidentialAddress" EntitySet="ResidentialAddress" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sotrudnik_Role" Association="Self.FK_Sotrudnik_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Sotrudnik" EntitySet="Sotrudnik" />
           </AssociationSet>
           <AssociationSet Name="FK_Subscriber_Gender" Association="Self.FK_Subscriber_Gender">
             <End Role="Gender" EntitySet="Gender" />
-            <End Role="Subscriber" EntitySet="Subscriber" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subscriber_ResidentialAddress" Association="Self.FK_Subscriber_ResidentialAddress">
-            <End Role="ResidentialAddress" EntitySet="ResidentialAddress" />
             <End Role="Subscriber" EntitySet="Subscriber" />
           </AssociationSet>
         </EntityContainer>
@@ -588,6 +597,7 @@
           <EntitySet Name="Service" EntityType="CRM23Model.Service" />
           <EntitySet Name="Sotrudnik" EntityType="CRM23Model.Sotrudnik" />
           <EntitySet Name="StatusServices" EntityType="CRM23Model.StatusServices" />
+          <EntitySet Name="Street" EntityType="CRM23Model.Street" />
           <EntitySet Name="Subscriber" EntityType="CRM23Model.Subscriber" />
           <EntitySet Name="TypeOfService" EntityType="CRM23Model.TypeOfService" />
           <EntitySet Name="TypeServices" EntityType="CRM23Model.TypeServices" />
@@ -667,9 +677,9 @@
             <End Role="Raion" EntitySet="Raion" />
             <End Role="ResidentialAddress" EntitySet="ResidentialAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subscriber_ResidentialAddress" Association="CRM23Model.FK_Subscriber_ResidentialAddress">
+          <AssociationSet Name="FK_ResidentialAddress_Street" Association="CRM23Model.FK_ResidentialAddress_Street">
+            <End Role="Street" EntitySet="Street" />
             <End Role="ResidentialAddress" EntitySet="ResidentialAddress" />
-            <End Role="Subscriber" EntitySet="Subscriber" />
           </AssociationSet>
           <AssociationSet Name="FK_Sotrudnik_Role" Association="CRM23Model.FK_Sotrudnik_Role">
             <End Role="Role" EntitySet="Role" />
@@ -831,10 +841,11 @@
           <Property Name="ResidentialAddressID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PrefixCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="RaionID" Type="Int32" Nullable="false" />
-          <Property Name="Prefix" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="House" Type="Int32" />
+          <Property Name="Gorod" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StreetID" Type="Int32" Nullable="false" />
+          <Property Name="House" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Raion" Relationship="CRM23Model.FK_ResidentialAddress_Raion" FromRole="ResidentialAddress" ToRole="Raion" />
-          <NavigationProperty Name="Subscriber" Relationship="CRM23Model.FK_Subscriber_ResidentialAddress" FromRole="ResidentialAddress" ToRole="Subscriber" />
+          <NavigationProperty Name="Street" Relationship="CRM23Model.FK_ResidentialAddress_Street" FromRole="ResidentialAddress" ToRole="Street" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -877,6 +888,14 @@
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CRM" Relationship="CRM23Model.FK_CRM_StatusServices" FromRole="StatusServices" ToRole="CRM" />
         </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ResidentialAddress" Relationship="CRM23Model.FK_ResidentialAddress_Street" FromRole="Street" ToRole="ResidentialAddress" />
+        </EntityType>
         <EntityType Name="Subscriber">
           <Key>
             <PropertyRef Name="SubscriberID" />
@@ -901,7 +920,6 @@
           <NavigationProperty Name="CRM" Relationship="CRM23Model.FK_CRM_Subscriber" FromRole="Subscriber" ToRole="CRM" />
           <NavigationProperty Name="Gender" Relationship="CRM23Model.FK_Subscriber_Gender" FromRole="Subscriber" ToRole="Gender" />
           <NavigationProperty Name="InstallationEquipment" Relationship="CRM23Model.FK_InstallationEquipment_Subscriber" FromRole="Subscriber" ToRole="InstallationEquipment" />
-          <NavigationProperty Name="ResidentialAddress" Relationship="CRM23Model.FK_Subscriber_ResidentialAddress" FromRole="Subscriber" ToRole="ResidentialAddress" />
         </EntityType>
         <EntityType Name="TypeOfService">
           <Key>
@@ -1147,15 +1165,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Subscriber_ResidentialAddress">
-          <End Type="CRM23Model.ResidentialAddress" Role="ResidentialAddress" Multiplicity="1" />
-          <End Type="CRM23Model.Subscriber" Role="Subscriber" Multiplicity="*" />
+        <Association Name="FK_ResidentialAddress_Street">
+          <End Type="CRM23Model.Street" Role="Street" Multiplicity="1" />
+          <End Type="CRM23Model.ResidentialAddress" Role="ResidentialAddress" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ResidentialAddress">
-              <PropertyRef Name="ResidentialAddressID" />
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
             </Principal>
-            <Dependent Role="Subscriber">
-              <PropertyRef Name="ResidentialAddressID" />
+            <Dependent Role="ResidentialAddress">
+              <PropertyRef Name="StreetID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1316,7 +1334,8 @@
             <EntityTypeMapping TypeName="CRM23Model.ResidentialAddress">
               <MappingFragment StoreEntitySet="ResidentialAddress">
                 <ScalarProperty Name="House" ColumnName="House" />
-                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
+                <ScalarProperty Name="Gorod" ColumnName="Gorod" />
                 <ScalarProperty Name="RaionID" ColumnName="RaionID" />
                 <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
                 <ScalarProperty Name="ResidentialAddressID" ColumnName="ResidentialAddressID" />
@@ -1358,6 +1377,14 @@
               <MappingFragment StoreEntitySet="StatusServices">
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="StatusServicesID" ColumnName="StatusServicesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="CRM23Model.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="Tytle" ColumnName="Tytle" />
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

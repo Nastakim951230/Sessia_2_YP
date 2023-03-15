@@ -96,7 +96,7 @@ namespace Sessia_2_YP.Page
             }
             else if(id==0)
             {
-                Abonent.Visibility = Visibility.Collapsed;
+                Abonent.Visibility = Visibility.Visible;
                 oborydovanue.Visibility = Visibility.Collapsed;
                 activ.Visibility = Visibility.Collapsed;
                 billing.Visibility = Visibility.Collapsed;
