@@ -81,12 +81,24 @@ namespace Sessia_2_YP.Page
                 SrokDogovora.Text = installationEquipment.Notes;
             }
             List<CRM> crm = Class.ClassBase.Bd.CRM.Where(x => x.SubscriberID == subscriber.SubscriberID).ToList();
-            if(crm.Count>0)
+            if (crm.Count > 0)
             {
-                list.Visibility=Visibility.Visible;
-                listCRM.ItemsSource = crm;
+                List<CRM> cRMs = new List<CRM>();
+                list.Visibility = Visibility.Visible;
+                for (int i = 0; i < crm.Count; i++)
+                {
+
+                    DateTime date = crm[i].DateCreation;
+                    date = date.AddMonths(12);
+                    if (DateTime.Today <= date)
+                    {
+                        cRMs.Add(crm[i]);
+                    }
+
+
+                }
+                listCRM.ItemsSource = cRMs;
             }
-           
         }
     }
 }

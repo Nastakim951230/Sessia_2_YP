@@ -38,7 +38,11 @@
                         <DataTemplate>
                             <Grid>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding nomer}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding nomer}"></TextBlock>
+                                    <TextBlock Text="{Binding dateStartAndEnd}"   Margin="10,0,0,0"></TextBlock>
+                                    <TextBlock Text="{Binding services}"   Margin="10,0,0,0"></TextBlock>
+                                    <TextBlock Text="{Binding status}" Margin="10,0,0,0"></TextBlock>
+                                    <TextBlock Text="{Binding problema}" Margin="10,0,0,0"></TextBlock>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
