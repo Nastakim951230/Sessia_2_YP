@@ -17,7 +17,7 @@
             <StackPanel VerticalAlignment="Top">
                 <Image Margin="10" Height="100" Source="../Image/Sotrudnik/Лого ТНС.jpg"></Image>
                 <StackPanel>
-                    <ScrollViewer  x:Name="scroll" CanContentScroll="True"  Height="480" VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer  x:Name="scroll" CanContentScroll="True"  Height="700" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
                             <Button  x:Name="Abonent" Style="{StaticResource buttondesin}" Visibility="Visible" Click="Abonent_Click">
 

@@ -147,8 +147,40 @@ namespace Sessia_2_YP.Page
             }
             else
             {
-             
+             List<ResidentialAddress> addresses = new List<ResidentialAddress>();
+                List<ResidentialAddress> residentialAddresses = Class.ClassBase.Bd.ResidentialAddress.ToList();
+                List<Subscriber> subscriberList = Class.ClassBase.Bd.Subscriber.ToList();
+                List<Subscriber> subscribe = new List<Subscriber>();
+                List<Subscriber> subscribe2 = new List<Subscriber>();
+                if (Street.SelectedIndex>0)
+                {
+                    addresses =residentialAddresses.Where(x=>x.StreetID==Street.SelectedIndex).ToList();
+                    if (addresses.Count > 0)
+                    {
+                        for (int i = 0; i < addresses.Count; i++)
+                        {
 
+                            subscribe = subscriberList.Where(x => x.ResidentialAddressID == addresses[i].ResidentialAddressID).ToList();
+                            if (subscribe.Count > 0)
+                            {
+                                for (int j = 0; j < subscribe.Count; j++)
+                                {
+                                    subscribe2.Add(subscribe[j]);
+                                }
+                                subscribers = subscribe2.ToList();
+                            }
+                           
+
+                        }
+                        
+                    }
+                    if(subscribe.Count==0)
+                    {
+                        MessageBox.Show("Нет данных об абонентах на данной улице");
+                        Street.SelectedIndex = 0;
+                    }
+
+                }
             }
             if (subscribers.Count == 0)
             {
