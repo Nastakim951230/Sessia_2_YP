@@ -44,6 +44,13 @@
                 </ListView.View>
             </ListView>
         </Grid>
-        <Grid Grid.Row="2"></Grid>
+        <Grid Grid.Row="2">
+
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <CheckBox Name="AktivRB" Content="Активныe"  Checked="AktivRB_Checked" Unchecked="AktivRB_Checked" ></CheckBox>
+                <CheckBox Name="NOAktivRB" Content="Неактивныe" Checked="AktivRB_Checked" Unchecked="AktivRB_Checked"></CheckBox>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

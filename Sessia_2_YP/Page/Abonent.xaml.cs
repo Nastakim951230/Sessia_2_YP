@@ -24,6 +24,7 @@ namespace Sessia_2_YP.Page
         public Abonent()
         {
             InitializeComponent();
+            AktivRB.IsChecked = true;
             listAbonent.ItemsSource = Class.ClassBase.Bd.Subscriber.ToList();
             cbPoisk.SelectedIndex = 0;
 
@@ -34,6 +35,7 @@ namespace Sessia_2_YP.Page
                 Street.Items.Add(streets[i].Tytle);
             }
             Street.SelectedIndex = 0;
+           
         }
 
         private void cbPoisk_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,6 +63,57 @@ namespace Sessia_2_YP.Page
         void Filter()
         {
             List<Subscriber> subscribers = Class.ClassBase.Bd.Subscriber.ToList();
+            //  активный и неактивный абонент
+            if (AktivRB.IsChecked == true && NOAktivRB.IsChecked == false)
+            {
+                List<Contract> contracts1 = Class.ClassBase.Bd.Contract.ToList();
+                List<Contract> contract1 = new List<Contract>();
+                List<Subscriber> subscriberList1 = Class.ClassBase.Bd.Subscriber.ToList();
+                List<Subscriber> subscribe1 = new List<Subscriber>();
+                List<Subscriber> subscribe4 = new List<Subscriber>();
+                contract1 = contracts1.Where(x => x.ReasonForTerminationID == null).ToList();
+                if (contract1.Count > 0)
+                {
+                    for (int i = 0; i < contract1.Count; i++)
+                    {
+                        subscribe1 = subscriberList1.Where(x => x.SubscriberID == contract1[i].ContractID).ToList();
+                        if (subscribe1.Count > 0)
+                        {
+                            for (int j = 0; j < subscribe1.Count; j++)
+                            {
+                                subscribe4.Add(subscribe1[j]);
+                            }
+                        }
+                    }
+                    subscribers = subscribe4.ToList();
+                }
+            }
+            else if (AktivRB.IsChecked == false && NOAktivRB.IsChecked == true)
+            {
+                List<Contract> contracts = Class.ClassBase.Bd.Contract.ToList();
+                List<Contract> contract = new List<Contract>();
+                List<Subscriber> subscriberList = Class.ClassBase.Bd.Subscriber.ToList();
+                List<Subscriber> subscribe = new List<Subscriber>();
+                List<Subscriber> subscribe3 = new List<Subscriber>();
+                contract = contracts.Where(x => x.ReasonForTerminationID != null).ToList();
+                if (contract.Count > 0)
+                {
+                    for (int i = 0; i < contract.Count; i++)
+                    {
+                        subscribe = subscriberList.Where(x => x.SubscriberID == contract[i].ContractID).ToList();
+                        if (subscribe.Count > 0)
+                        {
+                            for (int j = 0; j < subscribe.Count; j++)
+                            {
+                                subscribe3.Add(subscribe[j]);
+                            }
+                        }
+                    }
+                    subscribers = subscribe3.ToList();
+                }
+            }
+
+
             //Поиск
             if (cbPoisk.SelectedIndex != 3)
             {
@@ -151,7 +204,7 @@ namespace Sessia_2_YP.Page
                 List<ResidentialAddress> residentialAddresses = Class.ClassBase.Bd.ResidentialAddress.ToList();
                 List<Subscriber> subscriberList = Class.ClassBase.Bd.Subscriber.ToList();
                 List<Subscriber> subscribe = new List<Subscriber>();
-                List<Subscriber> subscribe2 = new List<Subscriber>();
+                List<Subscriber> subscribe3 = new List<Subscriber>();
                 if (Street.SelectedIndex>0)
                 {
                     addresses =residentialAddresses.Where(x=>x.StreetID==Street.SelectedIndex).ToList();
@@ -165,9 +218,9 @@ namespace Sessia_2_YP.Page
                             {
                                 for (int j = 0; j < subscribe.Count; j++)
                                 {
-                                    subscribe2.Add(subscribe[j]);
+                                    subscribe3.Add(subscribe[j]);
                                 }
-                                subscribers = subscribe2.ToList();
+                                subscribers = subscribe3.ToList();
                             }
                            
 
@@ -182,6 +235,9 @@ namespace Sessia_2_YP.Page
 
                 }
             }
+
+           
+           
             if (subscribers.Count == 0)
             {
                 MessageBox.Show("Нет данных об абонентах");
@@ -203,5 +259,12 @@ namespace Sessia_2_YP.Page
         {
             Filter();
         }
+
+        private void AktivRB_Checked(object sender, RoutedEventArgs e)
+        {
+            Filter();
+        }
+
+     
     }
 }

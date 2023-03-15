@@ -10,7 +10,7 @@ namespace Sessia_2_YP
     {
         
         Contract contract;
-        Raion raion;
+     
         public string FIO
         {
             get
