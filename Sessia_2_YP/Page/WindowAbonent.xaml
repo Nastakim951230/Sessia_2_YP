@@ -1,0 +1,24 @@
+﻿<Window x:Class="Sessia_2_YP.Page.WindowAbonent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sessia_2_YP.Page"
+        mc:Ignorable="d"
+        Title="Абонент" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Name="NomerAbonenta" Style="{StaticResource STYLE}"></TextBlock>
+            <TextBlock Name="FIO" Margin="10,0,0,0">ФИО абонента: </TextBlock>
+            <TextBlock  Style="{StaticResource STYLE}"  Margin="0,5,0,5">Паспортные данные</TextBlock>
+            <TextBlock Name="Passport" Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="PassportDann" Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="PassportData" Margin="10,0,0,0"></TextBlock>
+            <TextBlock  Style="{StaticResource STYLE}"  Margin="0,5,0,5">Данные о контракте</TextBlock>
+            <TextBlock Name="NomerContract" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="TypeContract" ></TextBlock>
+            <TextBlock Name="DataContract" ></TextBlock>
+            <TextBlock Name="PrichinaContract" Visibility="Collapsed"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

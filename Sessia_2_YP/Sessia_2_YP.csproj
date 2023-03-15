@@ -122,6 +122,9 @@
     <Compile Include="Page\PageTitle.xaml.cs">
       <DependentUpon>PageTitle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Page\WindowAbonent.xaml.cs">
+      <DependentUpon>WindowAbonent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProblemType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\PageTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\WindowAbonent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

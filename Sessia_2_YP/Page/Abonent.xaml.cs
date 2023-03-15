@@ -265,6 +265,11 @@ namespace Sessia_2_YP.Page
             Filter();
         }
 
-     
+        private void abonentaView_Click(object sender, RoutedEventArgs e)
+        {
+            Subscriber index = (Subscriber)listAbonent.SelectedItem;
+            WindowAbonent abonent = new WindowAbonent(index);
+            abonent.ShowDialog();
+        }
     }
 }

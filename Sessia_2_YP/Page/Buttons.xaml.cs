@@ -109,6 +109,7 @@ namespace Sessia_2_YP.Page
         {
             Page.PageTitle.index_button = 1;
             Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+            Class.ClassFrame.modul.Navigate(new Page.Abonent());
         }
 
         private void oborydovanue_Click(object sender, RoutedEventArgs e)

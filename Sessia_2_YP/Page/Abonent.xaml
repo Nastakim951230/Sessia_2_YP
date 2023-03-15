@@ -42,6 +42,11 @@
                         </GridView.Columns>
                     </GridView>
                 </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Uid="{Binding SubscriberID}" Name="abonentaView" Header="Посмотреть абонента" Click="abonentaView_Click"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
         </Grid>
         <Grid Grid.Row="2">
