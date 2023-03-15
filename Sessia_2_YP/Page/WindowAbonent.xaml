@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sessia_2_YP.Page"
         mc:Ignorable="d"
-        Title="Абонент" Height="450" Width="800">
+        Title="Абонент" Height="600" Width="900">
     <Grid>
         <StackPanel>
             <TextBlock Name="NomerAbonenta" Style="{StaticResource STYLE}"></TextBlock>
@@ -16,9 +16,36 @@
             <TextBlock Name="PassportData" Margin="10,0,0,0"></TextBlock>
             <TextBlock  Style="{StaticResource STYLE}"  Margin="0,5,0,5">Данные о контракте</TextBlock>
             <TextBlock Name="NomerContract" HorizontalAlignment="Center"></TextBlock>
-            <TextBlock Name="TypeContract" ></TextBlock>
-            <TextBlock Name="DataContract" ></TextBlock>
-            <TextBlock Name="PrichinaContract" Visibility="Collapsed"></TextBlock>
+            <TextBlock Name="TypeContract"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="DataContract"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="PrichinaContract"  Margin="10,0,0,0" Visibility="Collapsed"></TextBlock>
+            <TextBlock Name="PerconalAccount"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="Address"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock  Margin="10,0,0,0">Подключенные услуги:</TextBlock>
+            <TextBlock Name="services"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock  Style="{StaticResource STYLE}"  Margin="0,5,0,5">Данные об оборудовании абонента</TextBlock>
+            <TextBlock Name="NomerEquipment" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="NameEquipment"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="typeEquipment"  Margin="10,0,0,0"></TextBlock>
+            <TextBlock Name="DannaEquipment" Visibility="Collapsed" Margin="10,0,0,0"></TextBlock>
+            <TextBlock  Style="{StaticResource STYLE}"  Margin="0,5,0,5">Данные об аренде/лизинге оборудования</TextBlock>
+            <TextBlock Name="NomerDogovora" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Name="SrokDogovora"  Margin="10,0,0,0" Visibility="Collapsed"></TextBlock>
+            <StackPanel Name="list" Visibility="Collapsed">
+                <TextBlock  Style="{StaticResource STYLE}"  Margin="0,5,0,5">История обращений в техническую поддержку</TextBlock>
+                <ListView Height="200" Name="listCRM" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding nomer}"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </StackPanel>
+           
         </StackPanel>
     </Grid>
 </Window>
