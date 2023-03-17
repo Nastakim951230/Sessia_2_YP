@@ -1,0 +1,27 @@
+﻿<Window x:Class="Sessia_2_YP.examination"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sessia_2_YP"
+        mc:Ignorable="d"
+        Title="examination" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <TextBlock Text="Проверка оборудования"></TextBlock>
+        </StackPanel>
+        <StackPanel x:Name="SP" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ProgressBar x:Name="loading" MinWidth="450" Height="20" Orientation="Horizontal"></ProgressBar>
+            <TextBlock Text="{Binding ElementName=loading, Path=Value, StringFormat={}{0:0}%}" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Name="Otmena" Click="Otmena_Click"  Padding="10" Margin="10,0,5,0" Background="AliceBlue">Отмена</Button>
+            <Button Name="proverka" Click="proverka_Click"  Padding="10" Margin="10,0,5,0" Background="AliceBlue">Проверка</Button>
+        </StackPanel>
+    </Grid>
+</Window>

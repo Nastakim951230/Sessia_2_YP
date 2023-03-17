@@ -21,6 +21,7 @@ namespace Sessia_2_YP
     {
         CRM crmadd;
         int id;
+        public static int variant;
         public statement(int IDSubr)
         {
             InitializeComponent();
@@ -140,6 +141,21 @@ namespace Sessia_2_YP
 
         private void Proverka_Click(object sender, RoutedEventArgs e)
         {
+            variant = 1;
+            examination exam = new examination();
+            exam.ShowDialog();
+
+            if(variant == 2)
+            {
+                StatusServices status = Class.ClassBase.Bd.StatusServices.FirstOrDefault(x => x.StatusServicesID == 2);
+                Status.Text = status.Status;
+            }
+            else if(variant == 3)
+            {
+                StatusServices status = Class.ClassBase.Bd.StatusServices.FirstOrDefault(x => x.StatusServicesID == 3);
+                Status.Text = status.Status;
+                dataEnd.Text= string.Format("{0:dd MMMM yyyy}", DateTime.Today);
+            }
 
         }
     }
