@@ -1,0 +1,88 @@
+﻿<Window x:Class="Sessia_2_YP.statement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sessia_2_YP"
+        mc:Ignorable="d"
+        Title="statement" Height="600" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <GroupBox Header="Номер заявки">
+                    <TextBlock Name="NomerZaivki"></TextBlock>
+                </GroupBox>
+                <GroupBox Header="Номер абонента">
+                    <TextBlock Name="NomerTelefona"></TextBlock>
+                </GroupBox>
+                <GroupBox Header="Лицевой счет">
+                    <TextBlock Name="Personal"></TextBlock>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <GroupBox Header="Дата создания">
+                    <TextBlock Name="dataStart"></TextBlock>
+                </GroupBox>
+                <GroupBox Header="Дата закрытия">
+                    <TextBlock Name="dataEnd"></TextBlock>
+                </GroupBox>
+                <GroupBox Header="Статус">
+                    <TextBlock Name="Status"></TextBlock>
+                </GroupBox>
+            </StackPanel>
+            
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <GroupBox Header="Услуга">
+                    <ComboBox Name="Services"></ComboBox>
+                </GroupBox>
+                <GroupBox Header="Тип оборудования">
+                    <ComboBox Name="TypeEquipment"></ComboBox>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <GroupBox Header="Тип услуги">
+                    <ComboBox Name="ServicesType"></ComboBox>
+                </GroupBox>
+                <GroupBox Header="Тип проблемы">
+                    <ComboBox Name="Typeproblem"></ComboBox>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <GroupBox Header="Вид услуги">
+                    <ComboBox Name="ServicesView"></ComboBox>
+                </GroupBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel>
+                <GroupBox Header="Описание проблемы">
+                    <TextBox Height="100" Name="Opisanie"></TextBox>
+                </GroupBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="nazad" Click="nazad_Click" Padding="10" Margin="10,0,5,0" Background="AliceBlue">Назад</Button>
+                <Button Name="Oformlenie" Click="Oformlenie_Click" Padding="10" Margin="5,0,5,0" Background="AliceBlue">Оформление заявки</Button>
+                <Button Name="Proverka" Click="Proverka_Click" Padding="10" Margin="5,0,10,0" Background="AliceBlue">Проверка</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

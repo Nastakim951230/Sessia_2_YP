@@ -31,6 +31,11 @@ namespace Sessia_2_YP
         {
             
             List<Subscriber> subscribers = Class.ClassBase.Bd.Subscriber.ToList();
+
+            for(int i = 0; i < subscribers.Count; i++)
+            {
+                cmbSubscriber.Items.Remove(subscribers[i].FIO);
+            }
             if (tbPhone.Text.Length > 0)
             {
                 subscribers = subscribers.Where(x => x.Phone.ToLower().Contains(tbPhone.Text.ToLower())).ToList();
@@ -39,8 +44,10 @@ namespace Sessia_2_YP
             {
                 subscribers = subscribers.Where(x => x.Surname.ToLower().Contains(tbSurname.Text.ToLower())).ToList();
             }
+           
             for (int i = 0; i < subscribers.Count; i++)
             {
+                
                 cmbSubscriber.Items.Add(subscribers[i].FIO);
             }
 
@@ -59,7 +66,23 @@ namespace Sessia_2_YP
 
         private void Oformlenie_Click(object sender, RoutedEventArgs e)
         {
-
+            if(cmbSubscriber.SelectedItem != null)
+            {
+                statement statement = new statement((int)cmbSubscriber.SelectedIndex+1);
+                statement.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Пользователь небыл выбран");
+            }
+        }
+        //проверяет текст на наличие +,(,),-
+        private void tbPhone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!(Char.IsDigit(e.Text,0)||(e.Text=="+")|| (e.Text == "-") || (e.Text == "(") || (e.Text == ")")))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
