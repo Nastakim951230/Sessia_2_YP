@@ -85,6 +85,9 @@
     <Compile Include="CRM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Page\crm.xaml.cs">
+      <DependentUpon>crm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Equipment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -162,6 +165,10 @@
     <Compile Include="TypeServices.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="Page\crm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

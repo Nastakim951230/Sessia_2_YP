@@ -38,7 +38,7 @@ namespace Sessia_2_YP.Page
             List<Sotrudnik> sotrud = Class.ClassBase.Bd.Sotrudnik.ToList();
            
             fio_polzoval.Items.Add("Не выбрано");
-            for (int i = 0; i < sotrud.Count; i++)  // цикл для записи в выпадающий список всех пород котов из БД
+            for (int i = 0; i < sotrud.Count; i++)
             {
                 fio_polzoval.Items.Add(sotrud[i].Fio);
             }

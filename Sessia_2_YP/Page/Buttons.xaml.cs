@@ -140,6 +140,12 @@ namespace Sessia_2_YP.Page
         {
             Page.PageTitle.index_button = 6;
             Class.ClassFrame.titleframe.Navigate(new Page.PageTitle());
+            Class.ClassFrame.modul.Navigate(new crm());
+        }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
